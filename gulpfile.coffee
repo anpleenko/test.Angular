@@ -1,15 +1,16 @@
-gulp                 = require('gulp')
-sass                 = require('gulp-sass')
-csso                 = require('gulp-csso')
+gulp          = require('gulp')
+sass          = require('gulp-sass')
+csso          = require('gulp-csso')
 
-postcss              = require('gulp-postcss');
-autoprefixer         = require('autoprefixer');
-perfectionist        = require("perfectionist");
+postcss       = require('gulp-postcss');
+autoprefixer  = require('autoprefixer');
+perfectionist = require("perfectionist");
 
-jade                 = require("gulp-jade");
+jade          = require("gulp-jade");
 
-browserify           = require('browserify')
-source               = require('vinyl-source-stream')
+browserify    = require('browserify')
+source        = require('vinyl-source-stream')
+imagemin      = require('gulp-imagemin')
 
 # -----------------------------------
 #   project variables
@@ -50,43 +51,49 @@ PERFECTIONIST_CONFIG = [
     maxSelectorLength: true
 ]
 
+# --- var task ---
+
+imageTask = () ->
+  gulp.src 'assets/image/**'
+    .pipe imagemin
+        progressive: true
+    .pipe gulp.dest 'app/img'
+
+scssTask = () ->
+  gulp.src 'assets/scss/**/!(_)*.scss'
+    .pipe sass SASS_CONFIG
+    .on 'error', sass.logError
+    .pipe postcss PROCESSORS_CONFIG
+    .pipe do csso
+    .pipe postcss PERFECTIONIST_CONFIG
+    .pipe gulp.dest 'app/css';
+
+jadeTask = () ->
+  gulp.src 'assets/jade/**/!(_)*.jade'
+    .pipe jade
+      pretty: true
+    .pipe gulp.dest 'app/';
+
 # -----------------------------------
 #   gulp tasks
 # -----------------------------------
 
+gulp.task 'image', ->
+  do imageTask
+
 gulp.task 'scss', ->
-  gulp.src 'assets/scss/**/!(_)*.scss'
-    .pipe sass SASS_CONFIG
-    .on 'error', sass.logError
-    .pipe postcss PROCESSORS_CONFIG
-    .pipe do csso
-    .pipe postcss PERFECTIONIST_CONFIG
-    .pipe gulp.dest 'app/css';
+  do scssTask
 
 gulp.task 'jade', ->
-  gulp.src 'assets/jade/**/!(_)*.jade'
-    .pipe jade
-      pretty: true
-    .pipe gulp.dest 'app/';
+  do jadeTask
+
+gulp.task 'build', ->
+  do imageTask
+  do scssTask
+  do jadeTask
 
 gulp.task 'watch', ['scss'], ->
   gulp.watch 'assets/scss/**/*.scss', ['scss']
   gulp.watch 'assets/views/**/*.jade', ['jade']
-
-gulp.task 'build', ->
-
-  gulp.src 'assets/scss/**/!(_)*.scss'
-    .pipe sass SASS_CONFIG
-    .on 'error', sass.logError
-    .pipe postcss PROCESSORS_CONFIG
-    .pipe do csso
-    .pipe postcss PERFECTIONIST_CONFIG
-    .pipe gulp.dest 'app/css';
-
-  gulp.src 'assets/jade/**/!(_)*.jade'
-    .pipe jade
-      pretty: true
-    .pipe gulp.dest 'app/';
-
 
 gulp.task 'default', ['watch', 'scss', 'jade']
