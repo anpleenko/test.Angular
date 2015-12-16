@@ -4,9 +4,6 @@ csso                 = require('gulp-csso')
 
 postcss              = require('gulp-postcss');
 autoprefixer         = require('autoprefixer');
-postcssPseudoContent = require('postcss-pseudo-elements-content');
-pxtorem              = require('postcss-pxtorem');
-selector             = require('postcss-custom-selectors')
 mqpacker             = require("css-mqpacker");
 perfectionist        = require("perfectionist");
 
@@ -43,10 +40,6 @@ SASS_CONFIG =
 PROCESSORS_CONFIG = [
   autoprefixer
     browsers: ['ie >= 8', 'last 3 versions', '> 2%']
-  pxtorem
-    root_value: 14
-    selector_black_list: ['html']
-  postcssPseudoContent
   postCSSFocus
   mqpacker
   selector
