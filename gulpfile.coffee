@@ -4,7 +4,6 @@ csso                 = require('gulp-csso')
 
 postcss              = require('gulp-postcss');
 autoprefixer         = require('autoprefixer');
-mqpacker             = require("css-mqpacker");
 perfectionist        = require("perfectionist");
 
 jade                 = require("gulp-jade");
@@ -41,8 +40,6 @@ PROCESSORS_CONFIG = [
   autoprefixer
     browsers: ['ie >= 8', 'last 3 versions', '> 2%']
   postCSSFocus
-  mqpacker
-  selector
 ]
 
 PERFECTIONIST_CONFIG = [
@@ -58,7 +55,7 @@ PERFECTIONIST_CONFIG = [
 # -----------------------------------
 
 gulp.task 'scss', ->
-  gulp.src 'scss/**/!(_)*.scss'
+  gulp.src 'assets/scss/**/!(_)*.scss'
     .pipe sass SASS_CONFIG
     .on 'error', sass.logError
     .pipe postcss PROCESSORS_CONFIG
@@ -67,7 +64,7 @@ gulp.task 'scss', ->
     .pipe gulp.dest 'app/css';
 
 gulp.task 'jade', ->
-  gulp.src 'views/**/!(_)*.jade'
+  gulp.src 'assets/jade/**/!(_)*.jade'
     .pipe jade
       pretty: true
     .pipe gulp.dest 'app/';
