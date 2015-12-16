@@ -90,7 +90,14 @@ gulp.task 'deploy', () ->
   } )
 
   globs = [
-    'app/**'
+    'app/css/**',
+    'app/img/**',
+    'app/index.html',
+    'app/lib/css.modfiles/dist/modfiles.css',
+    'app/lib/bootstrap/dist/css/bootstrap.css',
+    'app/lib/angular/angular.js',
+    'app/lib/jquery/dist/jquery.js',
+    'app/lib/bootstrap/dist/js/bootstrap.js'
   ]
 
   return gulp.src( globs, { base: '.', buffer: false } )
