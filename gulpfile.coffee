@@ -12,6 +12,8 @@ browserify    = require('browserify')
 source        = require('vinyl-source-stream')
 imagemin      = require('gulp-imagemin')
 
+ftp = require( 'vinyl-ftp' )
+
 # -----------------------------------
 #   project variables
 # -----------------------------------
@@ -77,6 +79,23 @@ jadeTask = () ->
 # -----------------------------------
 #   gulp tasks
 # -----------------------------------
+
+gulp.task 'deploy', () ->
+
+  conn = ftp.create( {
+    host:     'enisey5.beget.ru',
+    user:     'f90947ik',
+    password: 'Cpv1O69b',
+    parallel: 1
+  } )
+
+  globs = [
+    'app/**'
+  ]
+
+  return gulp.src( globs, { base: '.', buffer: false } )
+    .pipe( conn.dest( '/f90947ik.bget.ru/public_html' ) )
+
 
 gulp.task 'image', ->
   do imageTask
