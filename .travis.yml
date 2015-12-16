@@ -5,5 +5,5 @@ before_install:
   - npm install -g bower
 before_script:
   - npm install -g gulp
-script: gulp scss
+script: gulp build
 sudo: false

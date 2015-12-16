@@ -70,7 +70,23 @@ gulp.task 'jade', ->
     .pipe gulp.dest 'app/';
 
 gulp.task 'watch', ['scss'], ->
-  gulp.watch 'scss/**/*.scss', ['scss']
-  gulp.watch 'views/**/*.jade', ['jade']
+  gulp.watch 'assets/scss/**/*.scss', ['scss']
+  gulp.watch 'assets/views/**/*.jade', ['jade']
+
+gulp.task 'build', ->
+
+  gulp.src 'assets/scss/**/!(_)*.scss'
+    .pipe sass SASS_CONFIG
+    .on 'error', sass.logError
+    .pipe postcss PROCESSORS_CONFIG
+    .pipe do csso
+    .pipe postcss PERFECTIONIST_CONFIG
+    .pipe gulp.dest 'app/css';
+
+  gulp.src 'assets/jade/**/!(_)*.jade'
+    .pipe jade
+      pretty: true
+    .pipe gulp.dest 'app/';
+
 
 gulp.task 'default', ['watch', 'scss', 'jade']
