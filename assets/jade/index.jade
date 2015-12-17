@@ -4,10 +4,10 @@ block content
   header.main
     .container.pr
       .row
-        .col-xs-6
+        .col-xs-4
           h3.header-title
             a(href="#") Leaderboard
-        .col-xs-6.mobile-non-relative
+        .col-xs-8.mobile-non-relative
           button(type="button").mobile-button
             span
             span
@@ -16,19 +16,19 @@ block content
             li(ng-repeat="key in responseData" ng-click="toggleTab($index)" class="{{(currentTab == $index)? 'active':''}}")
               a(href="#") {{key.name}}
 
-  .container(ng-repeat="item in responseData" ng-show="currentTab == $index")
-    .row.row-empty
-      .col-md-8
-        section.board-main.board-leader
-          section.list(ng-if='mobi', mb-scrollbar='scrollbar(horizontal(), true, true)')
-            .item(ng-repeat="(key, val) in item.leader")
-              img(ng-src="{{val.avatar}}")
-              span {{val.name}}
-              span {{val.count}}
-              span {{val.score}}
-      .col-md-4
-        section.board-main.board-game
-          section.list(ng-if='mobi', mb-scrollbar='scrollbar("vertical", true, true)')
-            ul.lsn.pl0.game-list.mb0
-              li(ng-repeat="(key, val) in item.games")
-                a(href="{{val.url}}") {{val.name}}
+  .container.clearfix(ng-repeat="item in responseData" ng-show="currentTab == $index")
+    section.board-main.board-leader
+      section.leader-list.clearfix(ng-if='mobi', mb-scrollbar='scrollbar(horizontal(), true, true)')
+        a(href="#" ng-repeat="(key, val) in item.leader").item
+          span.count {{val.count}}
+          img(ng-src="{{val.avatar}}").avatar
+          img(ng-src="{{(val.count == 1)?'img/img_star_gold.png':''}}" ng-if="val.count == 1").star
+          img(ng-src="{{(val.count == 2)?'img/img_star_silver.png':''}}" ng-if="val.count == 2").star
+          img(ng-src="{{(val.count == 3)?'img/img_star_copper.png':''}}" ng-if="val.count == 3").star
+          span.db.name {{val.name}}
+          span(class="{{(val.count == 1)?'db score winner':'db score'}}") {{val.score}}
+    section.board-main.board-game
+      section.game-list(ng-if='mobi', mb-scrollbar='scrollbar("vertical", true, true)')
+        ul.lsn.pl0.game-list.mb0
+          li(ng-repeat="(key, val) in item.games")
+            a(href="{{val.url}}") {{val.name}}

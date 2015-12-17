@@ -32,10 +32,10 @@
     <header class="main">
       <div class="container pr">
         <div class="row">
-          <div class="col-xs-6">
+          <div class="col-xs-4">
             <h3 class="header-title"><a href="#">Leaderboard</a></h3>
           </div>
-          <div class="col-xs-6 mobile-non-relative">
+          <div class="col-xs-8 mobile-non-relative">
             <button type="button" class="mobile-button"><span></span><span></span><span></span></button>
             <ul class="menu-list">
               <li ng-repeat="key in responseData" ng-click="toggleTab($index)" class="{{(currentTab == $index)? 'active':''}}"><a href="#">{{key.name}}</a></li>
@@ -44,25 +44,17 @@
         </div>
       </div>
     </header>
-    <div ng-repeat="item in responseData" ng-show="currentTab == $index" class="container">
-      <div class="row row-empty">
-        <div class="col-md-8">
-          <section class="board-main board-leader">
-            <section ng-if="mobi" mb-scrollbar="scrollbar(horizontal(), true, true)" class="list">
-              <div ng-repeat="(key, val) in item.leader" class="item"><img ng-src="{{val.avatar}}"><span>{{val.name}}</span><span>{{val.count}}</span><span>{{val.score}}</span></div>
-            </section>
-          </section>
-        </div>
-        <div class="col-md-4">
-          <section class="board-main board-game">
-            <section ng-if="mobi" mb-scrollbar="scrollbar(&quot;vertical&quot;, true, true)" class="list">
-              <ul class="lsn pl0 game-list mb0">
-                <li ng-repeat="(key, val) in item.games"><a href="{{val.url}}">{{val.name}}</a></li>
-              </ul>
-            </section>
-          </section>
-        </div>
-      </div>
+    <div ng-repeat="item in responseData" ng-show="currentTab == $index" class="container clearfix">
+      <section class="board-main board-leader">
+        <section ng-if="mobi" mb-scrollbar="scrollbar(horizontal(), true, true)" class="leader-list clearfix"><a href="#" ng-repeat="(key, val) in item.leader" class="item"><span class="count">{{val.count}}</span><img ng-src="{{val.avatar}}" class="avatar"><img ng-src="{{(val.count == 1)?'img/img_star_gold.png':''}}" ng-if="val.count == 1" class="star"><img ng-src="{{(val.count == 2)?'img/img_star_silver.png':''}}" ng-if="val.count == 2" class="star"><img ng-src="{{(val.count == 3)?'img/img_star_copper.png':''}}" ng-if="val.count == 3" class="star"><span class="db name">{{val.name}}</span><span class="{{(val.count == 1)?'db score winner':'db score'}}">{{val.score}}</span></a></section>
+      </section>
+      <section class="board-main board-game">
+        <section ng-if="mobi" mb-scrollbar="scrollbar(&quot;vertical&quot;, true, true)" class="game-list">
+          <ul class="lsn pl0 game-list mb0">
+            <li ng-repeat="(key, val) in item.games"><a href="{{val.url}}">{{val.name}}</a></li>
+          </ul>
+        </section>
+      </section>
     </div>
     <script src="lib/angular/angular.js"></script>
     <script src="js/mb-scrollbar.js"></script>

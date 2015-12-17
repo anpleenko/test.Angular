@@ -4,6 +4,7 @@ var chance = new Chance();
 module.exports = function () {
 
     var countTabs = ["Today", "Twis Week", "All Time"],
+    stars = ["img/img_star_copper.png", "img/img_star_gold.png", "img/img_star_silver.png"],
     data = {
         leaderboard: []
     },
@@ -16,6 +17,7 @@ module.exports = function () {
                 avatar: "http://lorempixel.com/80/80/",
                 // avatar: "http://api.adorable.io/avatars/80/"+chance.word({length: 5})+".png",
                 name: chance.name(),
+                // star: stars[chance.natural({min: 0, max: 2})],
                 count: i + 1,
                 score: chance.natural({min: 1000, max: 10000}),
             })

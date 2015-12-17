@@ -5,16 +5,17 @@ csso          = require('gulp-csso')
 postcss       = require('gulp-postcss');
 autoprefixer  = require('autoprefixer');
 perfectionist = require("perfectionist");
+mqpacker      = require("css-mqpacker")
 
 jade          = require("gulp-jade");
 
-babel = require('gulp-babel')
+babel         = require('gulp-babel')
 
 browserify    = require('browserify')
 source        = require('vinyl-source-stream')
 imagemin      = require('gulp-imagemin')
 
-ftp = require( 'vinyl-ftp' )
+ftp           = require( 'vinyl-ftp' )
 
 # -----------------------------------
 #   project variables
@@ -45,6 +46,7 @@ PROCESSORS_CONFIG = [
   autoprefixer
     browsers: ['ie >= 8', 'last 3 versions', '> 2%']
   postCSSFocus
+  mqpacker
 ]
 
 PERFECTIONIST_CONFIG = [
