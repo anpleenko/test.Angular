@@ -29,20 +29,32 @@
     <![endif]-->
   </head>
   <body ng-controller="Automatic">
-    <section class="main controls">
-      <button ng-click="addOne()" class="btn btn-primary">Add One</button>
-      <button ng-click="removeOne()" class="btn btn-danger">Remove One</button>
-    </section>
-    <section class="main">
-      <section mb-scrollbar="scrollbar(horizontal(), true)" class="list">
-        <div ng-repeat="item in items" class="item"><span class="id">{{item.id}}</span><span class="name">{{item.name}}</span><span class="desc">{{item.desc}}</span></div>
-      </section>
-    </section>
-    <section class="main">
-      <section ng-if="mobi" mb-scrollbar="scrollbar(horizontal(), true, true)" class="list">
-        <div ng-repeat="item in items" class="item"><span class="id">{{item.id}}</span><span class="name">{{item.name}}</span><span class="desc">{{item.desc}}</span></div>
-      </section>
-    </section>
+    <header>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-6">
+            <h3 class="text-uppercase">Leaderboard</h3>
+          </div>
+          <div class="col-xs-6">
+            <ul class="menu-list">
+              <li ng-repeat="key in responseData" ng-click="toggleTab($index)"><a href="#">{{key.name}}</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div ng-repeat="item in responseData" ng-if="currentTab == $index" class="container">
+        <section class="main">
+          <section mb-scrollbar="scrollbar(horizontal(), true)" class="list">
+            <div ng-repeat="(key, val) in item.leader" class="item"><img ng-src="{{val.avatar}}"><span>{{val.name}}</span><span>{{val.count}}</span><span>{{val.score}}</span></div>
+          </section>
+        </section>
+        <section class="main">
+          <section ng-if="mobi" mb-scrollbar="scrollbar(horizontal(), true, true)" class="list">
+            <div ng-repeat="(key, val) in item.games" class="item"><a href="{{val.url}}">{{val.name}}</a></div>
+          </section>
+        </section>
+      </div>
+    </header>
     <script src="lib/angular/angular.js"></script>
     <script src="js/mb-scrollbar.js"></script>
     <script src="js/main.js"></script>
