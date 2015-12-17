@@ -11,15 +11,18 @@ block content
             li(ng-repeat="key in responseData" ng-click="toggleTab($index)")
               a(href="#") {{key.name}}
 
-    .container(ng-repeat="item in responseData" ng-if="currentTab == $index")
-      section.main
-        section.list(mb-scrollbar='scrollbar(horizontal(), true)')
-          .item(ng-repeat="(key, val) in item.leader")
-            img(ng-src="{{val.avatar}}")
-            span {{val.name}}
-            span {{val.count}}
-            span {{val.score}}
-      section.main
-        section.list(ng-if='mobi', mb-scrollbar='scrollbar(horizontal(), true, true)')
-          .item(ng-repeat="(key, val) in item.games")
-            a(href="{{val.url}}") {{val.name}}
+    .container(ng-repeat="item in responseData" ng-show="currentTab == $index")
+      .row
+        .col-lg-8
+          section.main
+            section.list(mb-scrollbar='scrollbar(horizontal(), true)')
+              .item(ng-repeat="(key, val) in item.leader")
+                img(ng-src="{{val.avatar}}")
+                span {{val.name}}
+                span {{val.count}}
+                span {{val.score}}
+        .col-lg-4.visible-md.visible-lg
+          section.main
+            section.list(ng-if='mobi', mb-scrollbar='scrollbar(horizontal(), true, true)')
+              .item(ng-repeat="(key, val) in item.games")
+                a(href="{{val.url}}") {{val.name}}

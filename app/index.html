@@ -42,17 +42,23 @@
           </div>
         </div>
       </div>
-      <div ng-repeat="item in responseData" ng-if="currentTab == $index" class="container">
-        <section class="main">
-          <section mb-scrollbar="scrollbar(horizontal(), true)" class="list">
-            <div ng-repeat="(key, val) in item.leader" class="item"><img ng-src="{{val.avatar}}"><span>{{val.name}}</span><span>{{val.count}}</span><span>{{val.score}}</span></div>
-          </section>
-        </section>
-        <section class="main">
-          <section ng-if="mobi" mb-scrollbar="scrollbar(horizontal(), true, true)" class="list">
-            <div ng-repeat="(key, val) in item.games" class="item"><a href="{{val.url}}">{{val.name}}</a></div>
-          </section>
-        </section>
+      <div ng-repeat="item in responseData" ng-show="currentTab == $index" class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <section class="main">
+              <section mb-scrollbar="scrollbar(horizontal(), true)" class="list">
+                <div ng-repeat="(key, val) in item.leader" class="item"><img ng-src="{{val.avatar}}"><span>{{val.name}}</span><span>{{val.count}}</span><span>{{val.score}}</span></div>
+              </section>
+            </section>
+          </div>
+          <div class="col-lg-4 visible-md visible-lg">
+            <section class="main">
+              <section ng-if="mobi" mb-scrollbar="scrollbar(horizontal(), true, true)" class="list">
+                <div ng-repeat="(key, val) in item.games" class="item"><a href="{{val.url}}">{{val.name}}</a></div>
+              </section>
+            </section>
+          </div>
+        </div>
       </div>
     </header>
     <script src="lib/angular/angular.js"></script>
