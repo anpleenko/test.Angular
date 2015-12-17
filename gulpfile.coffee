@@ -8,6 +8,8 @@ perfectionist = require("perfectionist");
 
 jade          = require("gulp-jade");
 
+babel = require('gulp-babel')
+
 browserify    = require('browserify')
 source        = require('vinyl-source-stream')
 imagemin      = require('gulp-imagemin')
@@ -76,6 +78,12 @@ jadeTask = () ->
       pretty: true
     .pipe gulp.dest 'app/';
 
+babelTask = () ->
+  gulp.src 'assets/js/**/*.js'
+    .pipe babel
+      presets: ['es2015']
+    .pipe gulp.dest 'app/js';
+
 # -----------------------------------
 #   gulp tasks
 # -----------------------------------
@@ -92,6 +100,7 @@ gulp.task 'deploy', () ->
   globs = [
     'app/css/**',
     'app/img/**',
+    'app/js/**',
     'app/index.html',
     'app/lib/css.modfiles/dist/modfiles.css',
     'app/lib/bootstrap/dist/css/bootstrap.css',
@@ -113,13 +122,18 @@ gulp.task 'scss', ->
 gulp.task 'jade', ->
   do jadeTask
 
+gulp.task 'babel', ->
+  do babelTask
+
 gulp.task 'build', ->
+  do babelTask
   do imageTask
   do scssTask
   do jadeTask
 
 gulp.task 'watch', ['scss'], ->
   gulp.watch 'assets/scss/**/*.scss', ['scss']
-  gulp.watch 'assets/views/**/*.jade', ['jade']
+  gulp.watch 'assets/jade/**/*.jade', ['jade']
+  gulp.watch 'assets/js/**/*.js', ['babel']
 
-gulp.task 'default', ['watch', 'scss', 'jade']
+gulp.task 'default', ['watch', 'scss', 'jade', 'babel']

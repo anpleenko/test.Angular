@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" ng-app="scrollbar">
   <head>
-    <title>Jade title</title>
+    <title>Angular game dashboard</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,6 +20,7 @@
     <link rel="icon" href="img/favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
     <link href="http://cdn.jsdelivr.net/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="lib/css.modfiles/dist/modfiles.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet"><!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -27,8 +28,23 @@
      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
-    <script src="//cdn.jsdelivr.net/g/jquery@2.1.4,bootstrap@3.3.5"></script>
+  <body ng-controller="Automatic">
+    <section class="main controls">
+      <button ng-click="addOne()" class="btn btn-primary">Add One</button>
+      <button ng-click="removeOne()" class="btn btn-danger">Remove One</button>
+    </section>
+    <section class="main">
+      <section mb-scrollbar="scrollbar(horizontal(), true)" class="list">
+        <div ng-repeat="item in items" class="item"><span class="id">{{item.id}}</span><span class="name">{{item.name}}</span><span class="desc">{{item.desc}}</span></div>
+      </section>
+    </section>
+    <section class="main">
+      <section ng-if="mobi" mb-scrollbar="scrollbar(horizontal(), true, true)" class="list">
+        <div ng-repeat="item in items" class="item"><span class="id">{{item.id}}</span><span class="name">{{item.name}}</span><span class="desc">{{item.desc}}</span></div>
+      </section>
+    </section>
+    <script src="lib/angular/angular.js"></script>
+    <script src="js/mb-scrollbar.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

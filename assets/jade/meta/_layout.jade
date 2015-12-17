@@ -1,7 +1,7 @@
 doctype html
-html(lang="ru")
+html(lang="ru" ng-app="scrollbar")
   head
-    title Jade title
+    title Angular game dashboard
 
     meta(charset="UTF-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
@@ -30,6 +30,7 @@ html(lang="ru")
 
     //- link(href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css", rel="stylesheet", media="screen")
     link(href="http://cdn.jsdelivr.net/bootstrap/3.3.5/css/bootstrap.min.css", rel="stylesheet", media="screen")
+    link(href="lib/css.modfiles/dist/modfiles.css", rel="stylesheet")
     link(href="css/style.css", rel="stylesheet")
 
     |<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -41,13 +42,14 @@ html(lang="ru")
 
     block style
 
-  body
+  body(ng-controller="Automatic")
     block header
     block content
     block footer
 
     //- add library
-    script(src="//cdn.jsdelivr.net/g/jquery@2.1.4,bootstrap@3.3.5")
+    script(src="lib/angular/angular.js")
+    //- script(src="//cdn.jsdelivr.net/g/jquery@2.1.4,bootstrap@3.3.5")
     //- script(src="//cdn.jsdelivr.net/g/jquery@2.1.4")
     //- script(src="//cdn.jsdelivr.net/g/bootstrap@3.3.5")
 
@@ -62,6 +64,7 @@ html(lang="ru")
     //- script(src="//cdn.jsdelivr.net/g/backbonejs@1.2.1")
 
     //- add main script file
+    script(src="js/mb-scrollbar.js")
     script(src="js/main.js")
 
     block script
