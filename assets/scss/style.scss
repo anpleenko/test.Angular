@@ -1,40 +1,214 @@
 body {
-  background: #f2f2f2;
+  background: #fff;
   // text-align: center;
 }
 
-.main {
+header.main{
+  background: #e96b4f;
+  height: 40px;
+  @media all and (max-width: 992px){
+    margin-bottom: 50px;
+  }
+  .header-title{
+    color: #fff;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-top: 8px;
+    margin-bottom: 0;
+    a{
+      color: #fff;
+      &:hover{
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+  }
+  .menu-list{
+    float: right;
+    margin-top:   6px;
+    @media all and (max-width: 992px){
+      margin-top: 0px;
+      top: 40px;
+      float: none;
+      position: absolute;
+      left: 0;
+      right: 0;
+      width: 100%;
+    }
+
+    li{
+      border-right: 1px #fff solid;
+      &:last-child{
+        border-right: none;
+      }
+      &.active{
+        a{
+          color: #fff;
+          // font-size: 18px;
+        }
+      }
+    }
+    a{
+      color: #000;
+      text-transform: uppercase;
+      padding: 0 10px;
+      font-size: 18px;
+      &:hover{
+        text-decoration: none;
+      }
+    }
+  }
+  .mobile-button{
+    float: right;
+    display: block;
+    border: none;
+    margin-top: 11px;
+    background: transparent;
+    span{
+      background: #fff;
+      width: 20px;
+      height: 2px;
+      display: block;
+      margin-bottom: 3px;
+    }
+  }
+}
+
+.board-main {
   // width: 80%;
   height: 200px;
-  margin: 50px auto;
-  background: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-  text-align: left;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box; }
+  // margin: 50px auto;
+  // background: #fff;
+  // padding: 20px;
+  // border-radius: 5px;
+  // border: 1px solid #ccc;
+  // box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  // text-align: left;
+  // -moz-box-sizing: content-box;
+  // box-sizing: content-box;
+}
+
+.board-leader{
+  .ngscroll-scrollbar-container{
+    background: #807f81 !important;
+    height: 4px !important;
+    border-radius: 2px !important;
+    left: 10px !important;
+    right: 10px !important;
+    width: auto !important;
+    overflow: hidden;
+    .ngscroll-scrollbar{
+      bottom: 1px !important;
+      @media all and (min-width: 992px){
+        height: 2px !important;
+      }
+    }
+  }
+  @media all and (max-width: 992px){
+    .ngscroll-scrollbar-container{
+      background: #807f81 !important;
+        width: 4px !important;
+        border-radius: 2px !important;
+        height: 100% !important;
+        left: auto !important;
+        right: 0 !important;
+        overflow: auto !important;
+      .ngscroll-scrollbar{
+        right: 1px !important;
+        width: 2px !important;
+      }
+    }
+  }
+}
+
+.board-game{
+  .ngscroll-scrollbar-container{
+    background: #807f81 !important;
+    width: 4px !important;
+    border-radius: 2px !important;
+    .ngscroll-scrollbar{
+      width: 2px !important;
+      right: 1px !important;
+    }
+  }
+}
 
 .controls {
   display: inline-block;
   height: auto;
   width: auto;
   margin: 0 auto;
-  padding: 10px; }
-  .controls button:first-child {
-    margin-right: 10px; }
+  padding: 10px;
+}
+
+.controls button:first-child {
+  margin-right: 10px;
+}
 
 .list {
   width: 100%;
   height: 100%;
-  overflow: hidden; }
-  .list .item {
-    display: inline-block;
-    width: 200px;
-    height: 200px;
-    box-sizing: border-box;
+  overflow: hidden;
+}
+
+.list .item {
+  display: inline-block;
+  height: 200px;
+  // box-sizing: border-box;
+  padding: 10px;
+  // border-right: 1px dashed #ccc;
+  width: 200px;
+  @media all and (max-width: 992px){
+  width: 25%;
+
+  }
+}
+
+.list .item span {
+  display: block;
+}
+
+.game-list{
+  border-left:1px #000 solid;
+  @media all and (max-width: 992px){
+    border-left:none;
+  }
+  a{
+    display: block;
     padding: 10px;
-    border-right: 1px dashed #ccc; }
-    .list .item span {
-      display: block; }
+    // background: #f7f7f7;
+    color: #99999a;
+    font-size: 18px;
+    padding: 4px 17px;
+    text-transform: uppercase;
+    border-bottom: 1px #a2a1a3 solid;
+    &:hover{
+      color: #e56d48;
+      // background: #333;
+      text-decoration: none;
+    }
+  }
+}
+
+@media all and (max-width: 992px){
+  .mobile-non-relative{
+    position: static !important;
+  }
+}
+
+.row-empty {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  clear: fix;
+  .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2,
+  .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4,
+  .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6,
+  .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7,
+  .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9,
+  .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11,
+  .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+    padding-left: 0;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+}

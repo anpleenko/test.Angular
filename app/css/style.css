@@ -1,7 +1,100 @@
-body { background: #f2f2f2; }
-.main { height: 200px; margin: 50px auto; background: #fff; padding: 20px; border-radius: 5px; border: 1px solid #ccc; box-shadow: 1px 1px 3px rgba( 0, 0, 0, .2 ); text-align: left; box-sizing: content-box; }
+body { background: #fff; }
+header.main { background: #e96b4f; height: 40px; }
+@media all and (max-width:992px) {
+ header.main { margin-bottom: 50px; }
+}
+header.main .header-title { color: #fff; font-size: 18px; text-transform: uppercase; margin-top: 8px; margin-bottom: 0; }
+header.main .header-title a { color: #fff; }
+header.main .header-title a:hover,
+header.main .header-title a:focus { color: #fff; text-decoration: none; }
+header.main .menu-list { float: right; margin-top: 6px; }
+@media all and (max-width:992px) {
+ header.main .menu-list { margin-top: 0; top: 40px; float: none; position: absolute; left: 0; right: 0; width: 100%; }
+}
+header.main .menu-list li { border-right: 1px #fff solid; }
+header.main .menu-list li:last-child { border-right: none; }
+header.main .menu-list li.active a { color: #fff; }
+header.main .menu-list a { color: #000; text-transform: uppercase; padding: 0 10px; font-size: 18px; }
+header.main .menu-list a:hover,
+header.main .menu-list a:focus { text-decoration: none; }
+header.main .mobile-button { float: right; display: block; border: none; margin-top: 11px; background: 0 0; }
+header.main .mobile-button span { background: #fff; width: 20px; height: 2px; display: block; margin-bottom: 3px; }
+.board-main { height: 200px; }
+.board-leader .ngscroll-scrollbar-container { background: #807f81 !important; height: 4px !important; border-radius: 2px !important; left: 10px !important; right: 10px !important; width: auto !important; overflow: hidden; }
+.board-leader .ngscroll-scrollbar-container .ngscroll-scrollbar { bottom: 1px !important; }
+@media all and (min-width:992px) {
+ .board-leader .ngscroll-scrollbar-container .ngscroll-scrollbar { height: 2px !important; }
+}
+@media all and (max-width:992px) {
+ .board-leader .ngscroll-scrollbar-container { background: #807f81 !important; width: 4px !important; border-radius: 2px !important; height: 100% !important; left: auto !important; right: 0 !important; overflow: auto !important; }
+ .board-leader .ngscroll-scrollbar-container .ngscroll-scrollbar { right: 1px !important; width: 2px !important; }
+}
+.board-game .ngscroll-scrollbar-container { background: #807f81 !important; width: 4px !important; border-radius: 2px !important; }
+.board-game .ngscroll-scrollbar-container .ngscroll-scrollbar { width: 2px !important; right: 1px !important; }
 .controls { display: inline-block; height: auto; width: auto; margin: 0 auto; padding: 10px; }
 .controls button:first-child { margin-right: 10px; }
 .list { width: 100%; height: 100%; overflow: hidden; }
-.list .item { display: inline-block; width: 200px; height: 200px; box-sizing: border-box; padding: 10px; border-right: 1px dashed #ccc; }
+.list .item { display: inline-block; height: 200px; padding: 10px; width: 200px; }
+@media all and (max-width:992px) {
+ .list .item { width: 25%; }
+}
 .list .item span { display: block; }
+.game-list { border-left: 1px #000 solid; }
+@media all and (max-width:992px) {
+ .game-list { border-left: none; }
+}
+.game-list a { display: block; color: #99999a; font-size: 18px; padding: 4px 17px; text-transform: uppercase; border-bottom: 1px #a2a1a3 solid; }
+.game-list a:hover,
+.game-list a:focus { color: #e56d48; text-decoration: none; }
+@media all and (max-width:992px) {
+ .mobile-non-relative { position: static !important; }
+}
+.row-empty { margin-left: 0 !important; margin-right: 0 !important; clear: fix; }
+.row-empty .col-xs-1,
+.row-empty .col-sm-1,
+.row-empty .col-md-1,
+.row-empty .col-lg-1,
+.row-empty .col-xs-2,
+.row-empty .col-sm-2,
+.row-empty .col-md-2,
+.row-empty .col-lg-2,
+.row-empty .col-xs-3,
+.row-empty .col-sm-3,
+.row-empty .col-md-3,
+.row-empty .col-lg-3,
+.row-empty .col-xs-4,
+.row-empty .col-sm-4,
+.row-empty .col-md-4,
+.row-empty .col-lg-4,
+.row-empty .col-xs-5,
+.row-empty .col-sm-5,
+.row-empty .col-md-5,
+.row-empty .col-lg-5,
+.row-empty .col-xs-6,
+.row-empty .col-sm-6,
+.row-empty .col-md-6,
+.row-empty .col-lg-6,
+.row-empty .col-xs-7,
+.row-empty .col-sm-7,
+.row-empty .col-md-7,
+.row-empty .col-lg-7,
+.row-empty .col-xs-8,
+.row-empty .col-sm-8,
+.row-empty .col-md-8,
+.row-empty .col-lg-8,
+.row-empty .col-xs-9,
+.row-empty .col-sm-9,
+.row-empty .col-md-9,
+.row-empty .col-lg-9,
+.row-empty .col-xs-10,
+.row-empty .col-sm-10,
+.row-empty .col-md-10,
+.row-empty .col-lg-10,
+.row-empty .col-xs-11,
+.row-empty .col-sm-11,
+.row-empty .col-md-11,
+.row-empty .col-lg-11,
+.row-empty .col-xs-12,
+.row-empty .col-sm-12,
+.row-empty .col-md-12,
+.row-empty .col-lg-12 { padding-right: 0 !important; padding-left: 0 !important; }
