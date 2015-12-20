@@ -2,19 +2,18 @@ extends meta/_layout
 
 block content
   header.main
-    .container.pr
-      .clearfix
-        .pull-left
-          h3.header-title
-            a(href="#") Leaderboard
-        .pull-right
-          button(type="button").mobile-button
-            span
-            span
-            span
-          ul.menu-list
-            li(ng-repeat="key in responseData" ng-click="toggleTab($index)" ng-class="{active: currentTab === $index}")
-              a(href="#" ng-bind="key.name")
+    .container.pr.clearfix
+      .pull-left
+        h3.header-title
+          a(href="#") Leaderboard
+      .pull-right
+        button(type="button").mobile-button
+          span
+          span
+          span
+        ul.menu-list
+          li(ng-repeat="key in responseData" ng-click="toggleTab($index)" ng-class="{active: currentTab === $index}")
+            a(href="#" ng-bind="key.name")
 
   .container.clearfix(ng-repeat="item in responseData" ng-show="currentTab == $index")
     section.board-main.board-leader
@@ -22,6 +21,7 @@ block content
         a(href="#" ng-repeat="(key, val) in item.leader").item
           span.count(ng-bind="val.count")
           img(ng-src="{{val.avatar}}").avatar
+          .blue-circle
           img(ng-src="{{(val.count == 1)?'img/img_star_gold.png':''}}" ng-if="val.count == 1").star
           img(ng-src="{{(val.count == 2)?'img/img_star_silver.png':''}}" ng-if="val.count == 2").star
           img(ng-src="{{(val.count == 3)?'img/img_star_copper.png':''}}" ng-if="val.count == 3").star
@@ -29,6 +29,6 @@ block content
           span(class="{{(val.count == 1)?'db score winner':'db score'}}" ng-bind="val.score")
     section.board-main.board-game
       section.game-list(ng-if='mobi', mb-scrollbar='scrollbar("vertical", true, true)')
-        ul.lsn.pl0.game-list.mb0
+        ul.lsn.pl0.mb0.mt0
           li(ng-repeat="(key, val) in item.games")
             a(href="{{val.url}}" ng-bind="val.name")
