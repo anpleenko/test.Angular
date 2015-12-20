@@ -10,7 +10,7 @@ app.controller('Automatic', function ($scope, $http) {
     });
 
     $scope.horizontal = function () {
-        if (window.innerWidth < 992) {
+        if (window.innerWidth < 600) {
             return "vertical";
         } else {
             return "horizontal";
