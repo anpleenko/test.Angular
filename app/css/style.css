@@ -1,5 +1,6 @@
 body { background: #fff; }
-.container { width: 600px; padding: 0; }
+a { text-decoration: none; }
+.container { width: 600px; padding: 0; margin: 0 auto; }
 header.main { background: #e96b4f; height: 40px; }
 header.main .header-title { color: #fff; font-size: 18px; text-transform: uppercase; margin-top: 8px; margin-bottom: 0; }
 header.main .header-title a { color: #fff; }
@@ -38,20 +39,23 @@ header.main .mobile-button span { background: #fff; width: 20px; height: 2px; di
 .game-list a { display: block; color: #99999a; font-size: 18px; padding: 4px 17px; text-transform: uppercase; border-bottom: 1px #a2a1a3 solid; }
 .game-list a:hover,
 .game-list a:focus { color: #e56d48; text-decoration: none; }
-@media all and (max-width:992px) {
+@media all and (max-width:600px) {
+ .container { width: 100%; }
  header.main { margin-bottom: 50px; }
  header.main .menu-list { margin-top: 0; top: 40px; float: none; position: absolute; left: 0; right: 0; width: 100%; border-bottom: 1px #e96b4f solid; }
  header.main .menu-list li { border-right-color: #99999a; }
  header.main .menu-list li.active a { color: #e96b4f; }
  header.main .menu-list a { color: #99999a; }
  .board-main { height: 500px; }
+ .board-leader { width: 100%; }
  .board-leader .ngscroll-scrollbar-container { background: #807f81 !important; width: 4px !important; border-radius: 2px !important; height: 100% !important; left: auto !important; right: 0 !important; overflow: auto !important; }
  .board-leader .ngscroll-scrollbar-container .ngscroll-scrollbar { right: 1px !important; width: 2px !important; }
+ .board-game { width: 100%; }
  .leader-list .item { width: 50%; }
  .game-list { border-left: none; }
  .mobile-non-relative { position: static !important; }
 }
-@media all and (min-width:992px) {
+@media all and (min-width:600px) {
  .board-leader .ngscroll-scrollbar-container .ngscroll-scrollbar { height: 2px !important; }
 }
 @media all and (max-width:768px) {

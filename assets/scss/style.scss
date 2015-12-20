@@ -3,15 +3,23 @@ body {
   // text-align: center;
 }
 
+a{
+  text-decoration: none;
+}
+
 .container{
   width: 600px;
   padding: 0;
+  margin: 0 auto;
+  @media all and (max-width: 600px){
+    width: 100%;
+  }
 }
 
 header.main{
   background: #e96b4f;
   height: 40px;
-  @media all and (max-width: 992px){
+  @media all and (max-width: 600px){
     margin-bottom: 50px;
   }
   .header-title{
@@ -31,7 +39,7 @@ header.main{
   .menu-list{
     float: right;
     margin-top:   6px;
-    @media all and (max-width: 992px){
+    @media all and (max-width: 600px){
       margin-top: 0px;
       top: 40px;
       float: none;
@@ -44,7 +52,7 @@ header.main{
 
     li{
       border-right: 1px #fff solid;
-      @media all and (max-width: 992px){
+      @media all and (max-width: 600px){
         border-right-color: #99999a;
       }
       &:last-child{
@@ -53,7 +61,7 @@ header.main{
       &.active{
         a{
           color: #fff;
-          @media all and (max-width: 992px){
+          @media all and (max-width: 600px){
             color: #e96b4f;
           }
           // font-size: 18px;
@@ -65,7 +73,7 @@ header.main{
       text-transform: uppercase;
       padding: 0 10px;
       font-size: 18px;
-      @media all and (max-width: 992px){
+      @media all and (max-width: 600px){
         color: #99999a;
       }
       &:hover{
@@ -102,7 +110,7 @@ header.main{
   // text-align: left;
   // -moz-box-sizing: content-box;
   // box-sizing: content-box;
-  @media all and (max-width: 992px){
+  @media all and (max-width: 600px){
     height: 500px;
   }
 }
@@ -110,6 +118,9 @@ header.main{
 .board-leader{
   float: left;
   width: 310px;
+  @media all and (max-width: 600px){
+    width: 100%;
+  }
   .ngscroll-scrollbar-container{
     background: #807f81 !important;
     height: 4px !important;
@@ -120,12 +131,12 @@ header.main{
     overflow: hidden;
     .ngscroll-scrollbar{
       bottom: 1px !important;
-      @media all and (min-width: 992px){
+      @media all and (min-width: 600px){
         height: 2px !important;
       }
     }
   }
-  @media all and (max-width: 992px){
+  @media all and (max-width: 600px){
     .ngscroll-scrollbar-container{
       background: #807f81 !important;
         width: 4px !important;
@@ -145,6 +156,9 @@ header.main{
 .board-game{
   float: left;
   width: 260px;
+  @media all and (max-width: 600px){
+    width: 100%;
+  }
   .ngscroll-scrollbar-container{
     background: #807f81 !important;
     width: 4px !important;
@@ -190,7 +204,7 @@ header.main{
       background: #e2e1e1;
       text-decoration: none;
     }
-    @media all and (max-width: 992px){
+    @media all and (max-width: 600px){
       width: 50%;
       // height: 500px;
     }
@@ -238,7 +252,7 @@ header.main{
 
 .game-list{
   border-left:1px #000 solid;
-  @media all and (max-width: 992px){
+  @media all and (max-width: 600px){
     border-left:none;
   }
   a{
@@ -258,7 +272,7 @@ header.main{
   }
 }
 
-@media all and (max-width: 992px){
+@media all and (max-width: 600px){
   .mobile-non-relative{
     position: static !important;
   }

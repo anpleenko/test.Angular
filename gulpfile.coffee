@@ -104,8 +104,8 @@ gulp.task 'deploy', () ->
     'app/img/**',
     'app/js/**',
     'app/index.html',
-    'app/lib/css.modfiles/dist/modfiles.css',
-    'app/lib/bootstrap/dist/css/bootstrap.css',
+    'app/lib/css.modfiles/dist/modfiles.without.bootstrap.css',
+    'app/lib/normalize-css/normalize.css',
     'app/lib/angular/angular.js',
     'app/lib/jquery/dist/jquery.js',
     'app/lib/bootstrap/dist/js/bootstrap.js'

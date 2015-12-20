@@ -17,6 +17,7 @@
   ],
   "dependencies": {
     "angular": "~1.4.8",
-    "css.modfiles": "~0.0.5"
+    "css.modfiles": "~0.0.5",
+    "normalize-css": "normalize.css#~3.0.3"
   }
 }
