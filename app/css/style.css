@@ -14,7 +14,7 @@ header.main .menu-list li.active a { color: #fff; }
 header.main .menu-list a { color: #000; text-transform: uppercase; padding: 0 10px; font-size: 18px; }
 header.main .menu-list a:hover,
 header.main .menu-list a:focus { text-decoration: none; }
-header.main .mobile-button { float: right; display: block; border: none; margin-top: 15px; background: 0 0; padding: 0; }
+header.main .mobile-button { float: right; display: block; border: none; margin-top: 11px; background: 0 0; padding: 0; }
 header.main .mobile-button span { background: #fff; width: 20px; height: 2px; display: block; margin-bottom: 3px; }
 .board-main { height: 166px; margin-bottom: 30px; }
 .board-leader { float: left; width: 340px; }
