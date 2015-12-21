@@ -38,6 +38,6 @@ npm server
 
 ##Screenshots
 
-![](screenshot1.png)
+![](desktop_screnshot.png)
 
-![](screenshot2.png)
+![](mobile_screenshot.png)
