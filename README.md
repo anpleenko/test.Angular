@@ -1,7 +1,8 @@
 # test.Angular
 
 [![Build Status](https://travis-ci.org/vaeum/test.Angular.svg?branch=master)](https://travis-ci.org/vaeum/test.Angular)
-[![dependencies](https://david-dm.org/vaeum/test.Angular.svg)](https://github.com/vaeum/test.Angular)
+[![Dependency Status](https://david-dm.org/vaeum/test.Angular.svg)](https://david-dm.org/vaeum/test.Angular)
+[![devDependency Status](https://david-dm.org/vaeum/test.Angular/dev-status.svg)](https://david-dm.org/vaeum/test.Angular#info=devDependencies)
 
 
 ## Commands for start project
