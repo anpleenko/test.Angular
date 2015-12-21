@@ -27,7 +27,6 @@ app.controller('Automatic', function ($scope, $http) {
     $scope.currentTab = 0;
     $scope.toggleTab = function (tab) {
         $scope.currentTab = tab;
-        console.log(tab);
     };
 
     var config = {};
